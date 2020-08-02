@@ -1,4 +1,4 @@
-const Intro = 'https://images.unsplash.com/photo-1505995433366-e12047f3f144?fit=crop&w=840&q=80';
+const Intro = 'https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/images/zooly-logo.png';
 const Products = {
   'Accessories': 'https://source.unsplash.com//l1MCA0VyNrk/840x840',
 };

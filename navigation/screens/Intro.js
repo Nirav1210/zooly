@@ -6,6 +6,7 @@ const { height, width } = Dimensions.get('screen');
 
 import materialTheme from '../../theme/theme';
 import Images from '../../data/images';
+import { preventAutoHide } from 'expo/build/launch/SplashScreen';
 
 export default class Intro extends React.Component {
   render() {
@@ -17,17 +18,17 @@ export default class Intro extends React.Component {
         <Block flex center>
           <ImageBackground
             source={{  uri: Images.Intro }}
-            style={{ height: height, width: width, marginTop: '-55%', zIndex: 1 }}
+            style={styles.image}
           />
         </Block>
         <Block flex space="between" style={styles.padded}>
           <Block flex space="around" style={{ zIndex: 2 }}>
             <Block>
               <Block>
-                <Text color="white" size={60}>ZooLy</Text>
+                <Text color="white" size={60}>Welcome</Text>
               </Block>
               <Text size={16} color='rgba(255,255,255,0.6)'>
-                Welcome to the Zoo.
+                Explore the zoo and learn about wild life!
               </Text>
             </Block>
             <Block center>
@@ -36,7 +37,7 @@ export default class Intro extends React.Component {
                 style={styles.button}
                 color={materialTheme.COLORS.BUTTON_COLOR}
                 onPress={() => navigation.navigate('App')}>
-                START YOUR JOURNEY!
+                START YOUR JOURNEY
               </Button>
             </Block>
           </Block>
@@ -49,6 +50,12 @@ export default class Intro extends React.Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.COLORS.BLACK,
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    aspectRatio: 1,
+    marginTop: '10%',
   },
   padded: {
     paddingHorizontal: theme.SIZES.BASE * 2,
