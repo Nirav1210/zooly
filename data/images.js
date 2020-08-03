@@ -3,7 +3,7 @@ const Products = {
   'Accessories': 'https://source.unsplash.com//l1MCA0VyNrk/840x840',
 };
 
-const Profile = 'https://images.unsplash.com/photo-1512529920731-e8abaea917a5?fit=crop&w=840&q=80';
+const Profile = 'https://images.unsplash.com/photo-1552410260-0fd9b577afa6?fit=crop&w=840&q=80';
 const Avatar = 'https://images.unsplash.com/photo-1518725522904-4b3939358342?fit=crop&w=210&q=80';
 
 const Viewed = [

@@ -5,7 +5,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import HomeScreen from './screens/Home';
 import IntroScreen from './screens/Intro';
-// import ProfileScreen from './screens/Profile';
+import ProfileScreen from './screens/Profile';
 // import SettingsScreen from './screens/Settings';
 
 import CustomDrawerContent from './Menu';
@@ -20,7 +20,7 @@ const Drawer = createDrawerNavigator();
 
 const profile = {
   avatar: Images.Profile,
-  name: "Rachel Brown",
+  name: "Lion",
   type: "Seller",
   plan: "Pro",
   rating: 4.8
