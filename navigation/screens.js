@@ -6,7 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from './screens/Home';
 import IntroScreen from './screens/Intro';
 import ProfileScreen from './screens/Profile';
-// import SettingsScreen from './screens/Settings';
+import SettingsScreen from './screens/Settings';
 
 import CustomDrawerContent from './Menu';
 import { Icon, Header } from '../components';
