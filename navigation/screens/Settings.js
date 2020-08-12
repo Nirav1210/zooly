@@ -12,7 +12,7 @@ export default class Settings extends React.Component {
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.products}>
+        contentContainerStyle={styles.container}>
         <Block flex>
           <Text>This is Settings</Text>
         </Block>
@@ -31,9 +31,9 @@ export default class Settings extends React.Component {
 
 const styles = StyleSheet.create({
   home: {
-    width: width,    
+    width: width,
   },
-  products: {
+  container: {
     width: width - theme.SIZES.BASE * 2,
     paddingVertical: theme.SIZES.BASE * 2,
   },

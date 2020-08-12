@@ -22,7 +22,7 @@ export const AnimalCard = StyleSheet.create({
     marginLeft: ITEM_MARGIN,
     marginTop: 20,
     width: (SCREEN_WIDTH - (numColums + 1) * ITEM_MARGIN) / numColums,
-    height: ITEM_HEIGHT + 75,
+    height: ITEM_HEIGHT + 40,
     borderColor: '#cccccc',
     borderWidth: 0.5,
     borderRadius: 15

@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import HomeScreen from './screens/Home';
+import AnimalsScreen from './screens/Animals';
 import IntroScreen from './screens/Intro';
 import ProfileScreen from './screens/Profile';
 import SettingsScreen from './screens/Settings';
@@ -77,14 +78,43 @@ function HomeStack(props) {
         component={HomeScreen}
         options={{
           header: ({ navigation, scene }) => (
-            <Header 
-              search
-              tabs
+            <Header
+              transparent
               title="Home"
               navigation={navigation}
               scene={scene}
             />
           )
+        }}
+      />
+      <Stack.Screen
+        name="Animals"
+        component={AnimalsScreen}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              transparent
+              title="Animals"
+              navigation={navigation}
+              scene={scene}
+            />
+          )
+        }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              white
+              transparent
+              title="Profile"
+              scene={scene}
+              navigation={navigation}
+            />
+          ),
+          headerTransparent: true
         }}
       />
     </Stack.Navigator>

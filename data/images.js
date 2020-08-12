@@ -1,24 +1,26 @@
 const Intro = 'https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/images/zooly-logo.png';
-const Products = {
-  'Accessories': 'https://source.unsplash.com//l1MCA0VyNrk/840x840',
+
+const Animals = {
+  'Lion': 'https://images.unsplash.com/photo-1552410260-0fd9b577afa6?fit=crop&w=840&q=80',
+  'Eagle': 'https://images.unsplash.com/photo-1557401620-67270b61ea82?fit=crop&w=1350&q=80',
+  'Shark': 'https://images.unsplash.com/photo-1560275619-4662e36fa65c?fit=crop&w=1376&q=80',
 };
+
+const Categories = {
+  'Mammals': 'https://images.unsplash.com/photo-1570021974424-60e83dfee639?fit=crop&w=1353&q=80',
+  'Birds': 'https://images.unsplash.com/photo-1589433836278-f11d94f1014f?fit=crop&w=1350&q=80',
+  'Fish': 'https://images.unsplash.com/photo-1541747114257-dbd4925622ff?fit=crop&w=1352&q=80',
+  'Reptiles': 'https://images.unsplash.com/photo-1545286796-2ec7f880a911?fit=crop&w=1350&q=80',
+  'Amphibians': 'https://images.unsplash.com/photo-1501809094333-3ca1f284e2d8?fit=crop&w=1409&q=80',
+}
 
 const Profile = 'https://images.unsplash.com/photo-1552410260-0fd9b577afa6?fit=crop&w=840&q=80';
 const Avatar = 'https://images.unsplash.com/photo-1518725522904-4b3939358342?fit=crop&w=210&q=80';
 
-const Viewed = [
-  'https://images.unsplash.com/photo-1508264443919-15a31e1d9c1a?fit=crop&w=240&q=80',
-  'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?fit=crop&w=240&q=80',
-  'https://images.unsplash.com/photo-1487376480913-24046456a727?fit=crop&w=240&q=80',
-  'https://images.unsplash.com/photo-1494894194458-0174142560c0?fit=crop&w=240&q=80',
-  'https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?fit=crop&w=240&q=80',
-  'https://images.unsplash.com/photo-1542068829-1115f7259450?fit=crop&w=240&q=80',
-];
-
 export default {
   Intro,
-  Products,
+  Animals,
   Profile,
-  Viewed,
+  Categories,
   Avatar,
 }
