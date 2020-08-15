@@ -92,13 +92,8 @@ function HomeStack(props) {
         component={AnimalsScreen}
         options={{
           header: ({ navigation, scene }) => (
-            <Header
-              transparent
-              title="Animals"
-              navigation={navigation}
-              scene={scene}
-            />
-          )
+            <Header back transparent title="Animals" navigation={navigation} scene={scene} />
+          ),
         }}
       />
       <Stack.Screen
@@ -106,13 +101,7 @@ function HomeStack(props) {
         component={ProfileScreen}
         options={{
           header: ({ navigation, scene }) => (
-            <Header
-              white
-              transparent
-              title="Profile"
-              scene={scene}
-              navigation={navigation}
-            />
+            <Header back transparent title="" navigation={navigation} scene={scene} />
           ),
           headerTransparent: true
         }}
@@ -140,10 +129,8 @@ function AppStack(props) {
         itemStyle: {
           width: width * 0.74,
           paddingHorizontal: 12,
-          // paddingVertical: 4,
           justifyContent: "center",
           alignContent: "center",
-          // alignItems: 'center',
           overflow: "hidden"
         },
         labelStyle: {

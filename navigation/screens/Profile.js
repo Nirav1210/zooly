@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform } from 'react-native';
-import { Block, Text, theme } from 'galio-framework';
+import { Block, Text, theme, Button } from 'galio-framework';
 import { LinearGradient } from 'expo-linear-gradient';
+import { AntDesign } from '@expo/vector-icons'; 
 
 import { Icon } from '../../components';
 import Images from '../../data/images';
@@ -12,7 +13,30 @@ const { width, height } = Dimensions.get('screen');
 const thumbMeasure = (width - 48 - 32) / 3;
 
 export default class Profile extends React.Component {
+
+  renderTabs = () => {
+    const { navigation } = this.props;
+
+    return (
+      <Block row style={[styles.tabs, styles.dividerBottom]}>
+        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.goBack()}>
+          <Block row middle>
+            <AntDesign name="back" size={20} color="black" style={{ paddingRight: 8 }} />
+            <Text size={14} style={styles.tabTitle}>Back</Text>
+          </Block>
+        </Button>
+        <Button shadowless style={styles.tab} onPress={() => navigation.goBack()}>
+          <Block row middle>
+            <AntDesign name="sound" size={20} color="black" style={{ paddingRight: 8 }} />
+            <Text size={14} style={styles.tabTitle}>Play</Text>
+          </Block>
+        </Button>
+      </Block>
+    )
+  }
+
   render() {
+    const { navigation } = this.props;
     return (
       <Block flex style={styles.profile}>
         <Block flex>
@@ -30,12 +54,15 @@ export default class Profile extends React.Component {
         </Block>
         <Block flex style={styles.options}>
           <ScrollView showsVerticalScrollIndicator={false}>
+            <Block>
+              {this.renderTabs()}
+            </Block>
             <Block row space="between" style={{ paddingVertical: 16, alignItems: 'baseline' }}>
-              <Text bold size={16}>A random fact</Text>
+              <Text bold size={20}>Do you know...?</Text>
             </Block>
             <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
               <Block row space="between" style={{ flexWrap: 'wrap' }} >
-                <Text>Lions are the only cats that live in groups</Text>
+                <Text size={16}>Lions are the only cats that live in groups</Text>
               </Block>
             </Block>
           </ScrollView>
@@ -90,4 +117,29 @@ const styles = StyleSheet.create({
     height: '30%',
     position: 'absolute',
   },
+  tabs: {
+    marginBottom: 24,
+    marginTop: 5,
+    elevation: 4,
+  },
+  tab: {
+    backgroundColor: theme.COLORS.TRANSPARENT,
+    width: width * 0.37,
+    borderRadius: 0,
+    borderWidth: 0,
+    height: 20,
+  },
+  tabTitle: {
+    lineHeight: 19,
+    fontWeight: '300'
+  },
+  divider: {
+    borderRightWidth: 0.3,
+    borderRightColor: theme.COLORS.MUTED,
+  },
+  dividerBottom: {
+    borderBottomWidth: 0.3,
+    borderBottomColor: theme.COLORS.MUTED,
+    height: 45
+  }
 });
