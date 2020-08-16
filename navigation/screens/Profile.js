@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from '@expo/vector-icons'; 
 
 import { Icon } from '../../components';
-import Images from '../../data/images';
+import { animals } from '../../data/data';
 import materialTheme from '../../theme/theme';
 import { HeaderHeight } from "../../data/utils";
 
@@ -41,12 +41,12 @@ export default class Profile extends React.Component {
       <Block flex style={styles.profile}>
         <Block flex>
           <ImageBackground
-            source={{uri: Images.Profile}}
+            source={{uri: animals[0].image_url}}
             style={styles.profileContainer}
             imageStyle={styles.profileImage}>
             <Block flex style={styles.profileDetails}>
               <Block style={styles.profileTexts}>
-                <Text color="white" size={25} style={{ paddingBottom: 8 }}>Lion</Text>
+                <Text color="white" size={25} style={{ paddingBottom: 8 }}>{animals[0].name}</Text>
               </Block>
               <LinearGradient colors={['rgba(0,0,0,0)', 'rgba(0,0,0,1)']} style={styles.gradient} />
             </Block>
@@ -60,9 +60,9 @@ export default class Profile extends React.Component {
             <Block row space="between" style={{ paddingVertical: 16, alignItems: 'baseline' }}>
               <Text bold size={20}>Do you know...?</Text>
             </Block>
-            <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
+            <Block style={{ paddingBottom: -HeaderHeight }}>
               <Block row space="between" style={{ flexWrap: 'wrap' }} >
-                <Text size={16}>Lions are the only cats that live in groups</Text>
+                <Text size={16}>{animals[0].description}</Text>
               </Block>
             </Block>
           </ScrollView>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   profileContainer: {
     width: width,
-    height: height / 1.4,
+    height: height / 1.7,
   },
   profileDetails: {
     paddingTop: theme.SIZES.BASE * 4,
@@ -96,10 +96,10 @@ const styles = StyleSheet.create({
     zIndex: 2
   },
   options: {
-    position: 'relative',
+    // position: 'relative',
     padding: theme.SIZES.BASE,
     marginHorizontal: theme.SIZES.BASE,
-    marginTop: -theme.SIZES.BASE * 4,
+    // marginTop: -theme.SIZES.BASE,
     borderTopLeftRadius: 13,
     borderTopRightRadius: 13,
     backgroundColor: theme.COLORS.WHITE,

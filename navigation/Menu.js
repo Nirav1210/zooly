@@ -5,12 +5,13 @@ import { useSafeArea } from "react-native-safe-area-context";
 
 import { Icon, Drawer as DrawerCustomItem } from '../components/';
 import materialTheme from "../theme/theme";
+import { AntDesign } from '@expo/vector-icons'; 
 
 
 function CustomDrawerContent({
   drawerPosition,
   navigation,
-  profile,
+  user,
   focused,
   state,
   ...rest
@@ -18,7 +19,7 @@ function CustomDrawerContent({
   const insets = useSafeArea();
   const screens = [
     "Home",
-    "Profile",
+    "User",
     "Settings"
   ];
   return (
@@ -28,29 +29,15 @@ function CustomDrawerContent({
     >
       <Block flex={0.25} style={styles.header}>
         <TouchableWithoutFeedback
-          onPress={() => navigation.navigate("Profile")}
+          onPress={() => navigation.navigate("User")}
         >
-          <Block style={styles.profile}>
-            <Image source={{ uri: profile.avatar }} style={styles.avatar} />
+          <Block style={styles.user}>
+            <AntDesign name="user" size={30} color="white" style={styles.avatar} />
             <Text h5 color={"white"}>
-              {profile.name}
+              {user.name}
             </Text>
           </Block>
         </TouchableWithoutFeedback>
-        <Block row>
-          <Block middle style={styles.pro}>
-            <Text size={16} color="white">
-              {profile.plan}
-            </Text>
-          </Block>
-          <Text size={16} muted style={styles.seller}>
-            {profile.type}
-          </Text>
-          <Text size={16} color={materialTheme.COLORS.WARNING}>
-            {profile.rating}{" "}
-            <Icon name="shape-star" family="GalioExtra" size={14} />
-          </Text>
-        </Block>
       </Block>
       <Block flex style={{ paddingLeft: 7, paddingRight: 14 }}>
         <ScrollView
@@ -75,7 +62,7 @@ function CustomDrawerContent({
           })}
         </ScrollView>
       </Block>
-      <Block flex={0.3} style={{ paddingLeft: 7, paddingRight: 14 }}>
+      {/* <Block flex={0.3} style={{ paddingLeft: 7, paddingRight: 14 }}>
         <DrawerCustomItem
           title="Sign In"
           navigation={navigation}
@@ -86,7 +73,7 @@ function CustomDrawerContent({
           navigation={navigation}
           focused={state.index === 9 ? true : false}
         />
-      </Block>
+      </Block> */}
     </Block>
   );
 }
@@ -107,7 +94,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 28,
     justifyContent: 'flex-end'
   },
-  profile: {
+  user: {
     marginBottom: theme.SIZES.BASE / 2,
   },
   avatar: {

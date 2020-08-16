@@ -14,13 +14,8 @@ const Categories = {
   'Amphibians': 'https://images.unsplash.com/photo-1501809094333-3ca1f284e2d8?fit=crop&w=1409&q=80',
 }
 
-const Profile = 'https://images.unsplash.com/photo-1552410260-0fd9b577afa6?fit=crop&w=840&q=80';
-const Avatar = 'https://images.unsplash.com/photo-1518725522904-4b3939358342?fit=crop&w=210&q=80';
-
 export default {
   Intro,
   Animals,
-  Profile,
   Categories,
-  Avatar,
 }

@@ -41,8 +41,6 @@ import Screens from './navigation/screens.js';
 
 // cache app images
 const assetImages = [
-  Images.Profile,
-  Images.Avatar,
   Images.Intro,
 ];
 

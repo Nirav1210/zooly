@@ -7,6 +7,7 @@ import HomeScreen from './screens/Home';
 import AnimalsScreen from './screens/Animals';
 import IntroScreen from './screens/Intro';
 import ProfileScreen from './screens/Profile';
+import UserScreen from './screens/User';
 import SettingsScreen from './screens/Settings';
 
 import CustomDrawerContent from './Menu';
@@ -19,31 +20,24 @@ const { width } = Dimensions.get("screen");
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const profile = {
-  avatar: Images.Profile,
-  name: "Lion",
-  type: "Seller",
-  plan: "Pro",
-  rating: 4.8
+const user = {
+  name: "User name"
 };
 
-function ProfileStack(props) {
+function UserStack(props) {
   return (
-    <Stack.Navigator initialRouteName="Profile" mode="card" headerMode="screen">
+    <Stack.Navigator initialRouteName="User" mode="card" headerMode="screen">
       <Stack.Screen
-        name="Profile"
-        component={ProfileScreen}
+        name="User"
+        component={UserScreen}
         options={{
           header: ({ navigation, scene }) => (
             <Header
-              white
-              transparent
-              title="Profile"
+              title="User"
               scene={scene}
               navigation={navigation}
             />
           ),
-          headerTransparent: true
         }}
       />
     </Stack.Navigator>
@@ -115,7 +109,7 @@ function AppStack(props) {
     <Drawer.Navigator
       style={{ flex: 1 }}
       drawerContent={props => (
-        <CustomDrawerContent {...props} profile={profile} />
+        <CustomDrawerContent {...props} user={user} />
       )}
       drawerStyle={{
         backgroundColor: "white",
@@ -155,8 +149,8 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Profile"
-        component={ProfileStack}
+        name="User"
+        component={UserStack}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon

@@ -7,7 +7,7 @@ export const animals = [
         name: "Lion",
         image_url: Images.Animals.Lion,
         audio_url: "",
-        description: "Lion is a big mammal"
+        description: "Lions are the only cats that live in groups"
     },
     {
         animalId: 2,
