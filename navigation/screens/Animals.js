@@ -1,21 +1,18 @@
 import React from 'react';
 import { StyleSheet, FlatList, View, Text, TouchableHighlight, Image } from 'react-native';
-import { animals } from '../../data/data';
+import { getAnimalsByCategoryId } from '../../data/api';
 import { AnimalCard } from '../../theme/AppStyles'
 
 export default class Animals extends React.Component {
 
-  onPressCategory = item => {
-    // navigate to each animal profile screen
+  onPressAnimal = item => {
     const { navigation } = this.props;
-    const title = item.name;
-    const category = item;
-    navigation.navigate('Profile');
+    navigation.navigate('Profile', { item });
   };
 
   renderAnimals = ({ item }) => {
     return (
-      <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressCategory(item)}>
+      <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressAnimal(item)}>
         <View style={styles.container}>
           <Image style={styles.photo} source={{ uri: item.image_url }} />
           <Text style={styles.title}>{item.name}</Text>
@@ -25,13 +22,21 @@ export default class Animals extends React.Component {
   }
 
   render() {
+    const { route, navigation } = this.props;
+    const { category } = route.params;
+    const filteredAnimals = getAnimalsByCategoryId(category.id);
     return (
       <View>
+        <View>
+            <Text>
+                {category.description}
+            </Text>
+        </View>
         <FlatList
           vertical
           showsVerticalScrollIndicator={false}
           numColumns={2}
-          data={animals}
+          data={filteredAnimals}
           renderItem={this.renderAnimals}
           keyExtractor={item => `${item.animalId}`}
         />

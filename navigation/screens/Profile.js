@@ -4,18 +4,15 @@ import { Block, Text, theme, Button } from 'galio-framework';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from '@expo/vector-icons'; 
 
-import { Icon } from '../../components';
-import { animals } from '../../data/data';
-import materialTheme from '../../theme/theme';
 import { HeaderHeight } from "../../data/utils";
+import { getRandomFact } from "../../data/api";
 
 const { width, height } = Dimensions.get('screen');
-const thumbMeasure = (width - 48 - 32) / 3;
 
 export default class Profile extends React.Component {
 
   renderTabs = () => {
-    const { navigation } = this.props;
+    const { navigation, item } = this.props;
 
     return (
       <Block row style={[styles.tabs, styles.dividerBottom]}>
@@ -36,17 +33,18 @@ export default class Profile extends React.Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { route, navigation } = this.props;
+    const { item } = route.params;
     return (
       <Block flex style={styles.profile}>
         <Block flex>
           <ImageBackground
-            source={{uri: animals[0].image_url}}
+            source={{uri: item.image_url}}
             style={styles.profileContainer}
             imageStyle={styles.profileImage}>
             <Block flex style={styles.profileDetails}>
               <Block style={styles.profileTexts}>
-                <Text color="white" size={25} style={{ paddingBottom: 8 }}>{animals[0].name}</Text>
+                <Text color="white" size={25} style={{ paddingBottom: 15 }}>{item.name}</Text>
               </Block>
               <LinearGradient colors={['rgba(0,0,0,0)', 'rgba(0,0,0,1)']} style={styles.gradient} />
             </Block>
@@ -62,7 +60,7 @@ export default class Profile extends React.Component {
             </Block>
             <Block style={{ paddingBottom: -HeaderHeight }}>
               <Block row space="between" style={{ flexWrap: 'wrap' }} >
-                <Text size={16}>{animals[0].description}</Text>
+                <Text size={16}>{ getRandomFact(item.animalId) }</Text>
               </Block>
             </Block>
           </ScrollView>

@@ -6,10 +6,8 @@ export default class Home extends React.Component {
 
   onPressCategory = item => {
     const { navigation } = this.props;
-    const title = item.name;
     const category = item;
-    navigation.navigate('Animals');
-    // navigate to each category screen
+    navigation.navigate('Animals', { category });
   };
 
   renderCategory = ({ item }) => {
