@@ -14,7 +14,7 @@ export default class Home extends React.Component {
     return (
       <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressCategory(item)}>
         <View style={styles.categoriesItemContainer}>
-          <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} />
+          <Image style={styles.categoriesPhoto} source={{ uri: item.photo_uri }} />
           <Text style={styles.categoriesName}>{item.name}</Text>
           <Text style={styles.categoriesInfo}>{3} animals</Text>
         </View>

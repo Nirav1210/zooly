@@ -3,6 +3,7 @@ import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform } 
 import { Block, Text, theme, Button } from 'galio-framework';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from '@expo/vector-icons'; 
+import { Audio } from 'expo-av';
 
 import { HeaderHeight } from "../../data/utils";
 import { getRandomFact } from "../../data/api";
@@ -11,21 +12,41 @@ const { width, height } = Dimensions.get('screen');
 
 export default class Profile extends React.Component {
 
-  renderTabs = () => {
-    const { navigation, item } = this.props;
+  componentDidMount() {
+    Audio.setIsEnabledAsync(true);
+    Audio.setAudioModeAsync({
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+      playsInSilentLockedModeIOS: false,
+      shouldDuckAndroid: true,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+    });
+  }
 
+  _onPlayPausePressed = async (audioUri) => {
+    try {
+      const { sound, status } = await Audio.Sound.createAsync(
+        audioUri,
+        { shouldPlay: true }
+      );
+    } catch (error) {
+      // An error occurred!
+    }
+  };
+
+  renderTabs = (item) => {
+    const { navigation } = this.props;
     return (
       <Block row style={[styles.tabs, styles.dividerBottom]}>
-        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.goBack()}>
-          <Block row middle>
-            <AntDesign name="back" size={20} color="black" style={{ paddingRight: 8 }} />
-            <Text size={14} style={styles.tabTitle}>Back</Text>
-          </Block>
-        </Button>
         <Button shadowless style={styles.tab} onPress={() => navigation.goBack()}>
           <Block row middle>
-            <AntDesign name="sound" size={20} color="black" style={{ paddingRight: 8 }} />
-            <Text size={14} style={styles.tabTitle}>Play</Text>
+            <AntDesign name="back" size={23} color="black" style={styles.buttonIcon} />
+            <Text bold size={20} style={styles.tabTitle}>Back</Text>
+          </Block>
+        </Button>
+        <Button shadowless style={styles.tab} onPress={() => {this._onPlayPausePressed(item.audio_uri)}}>
+          <Block row middle>
+            <AntDesign name="sound" size={23} color="black" style={styles.buttonIcon} />
+            <Text bold size={20} style={styles.tabTitle}>Play</Text>
           </Block>
         </Button>
       </Block>
@@ -39,12 +60,12 @@ export default class Profile extends React.Component {
       <Block flex style={styles.profile}>
         <Block flex>
           <ImageBackground
-            source={{uri: item.image_url}}
+            source={{uri: item.image_uri}}
             style={styles.profileContainer}
             imageStyle={styles.profileImage}>
             <Block flex style={styles.profileDetails}>
               <Block style={styles.profileTexts}>
-                <Text color="white" size={25} style={{ paddingBottom: 15 }}>{item.name}</Text>
+                <Text color="white" size={30} style={{ paddingBottom: 15 }}>{item.name}</Text>
               </Block>
               <LinearGradient colors={['rgba(0,0,0,0)', 'rgba(0,0,0,1)']} style={styles.gradient} />
             </Block>
@@ -53,14 +74,14 @@ export default class Profile extends React.Component {
         <Block flex style={styles.options}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <Block>
-              {this.renderTabs()}
+              {this.renderTabs(item)}
             </Block>
             <Block row space="between" style={{ paddingVertical: 16, alignItems: 'baseline' }}>
               <Text bold size={20}>Do you know...?</Text>
             </Block>
             <Block style={{ paddingBottom: -HeaderHeight }}>
               <Block row space="between" style={{ flexWrap: 'wrap' }} >
-                <Text size={16}>{ getRandomFact(item.animalId) }</Text>
+                <Text size={18}>{ getRandomFact(item.animalId) }</Text>
               </Block>
             </Block>
           </ScrollView>
@@ -90,13 +111,13 @@ const styles = StyleSheet.create({
   },
   profileTexts: {
     paddingHorizontal: theme.SIZES.BASE * 2,
-    paddingVertical: theme.SIZES.BASE * 2,
+    paddingVertical: theme.SIZES.BASE * 3,
     zIndex: 2
   },
   options: {
     // position: 'relative',
     padding: theme.SIZES.BASE,
-    marginHorizontal: theme.SIZES.BASE,
+    // marginHorizontal: theme.SIZES.BASE,
     // marginTop: -theme.SIZES.BASE,
     borderTopLeftRadius: 13,
     borderTopRightRadius: 13,
@@ -116,28 +137,28 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   tabs: {
-    marginBottom: 24,
-    marginTop: 5,
+    marginBottom: 10,
+    // marginTop: 5,
     elevation: 4,
   },
   tab: {
     backgroundColor: theme.COLORS.TRANSPARENT,
-    width: width * 0.37,
-    borderRadius: 0,
-    borderWidth: 0,
-    height: 20,
+    width: width * 0.423,
+    borderRadius: 4,
+    borderWidth: 1,
+    height: 50,
   },
   tabTitle: {
-    lineHeight: 19,
-    fontWeight: '300'
+    lineHeight: 20,
+    fontWeight: '600'
   },
-  divider: {
-    borderRightWidth: 0.3,
-    borderRightColor: theme.COLORS.MUTED,
+  buttonIcon: {
+    paddingRight: 5,
+    lineHeight: 20,
   },
   dividerBottom: {
     borderBottomWidth: 0.3,
     borderBottomColor: theme.COLORS.MUTED,
-    height: 45
+    height: 70
   }
 });

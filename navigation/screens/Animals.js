@@ -14,7 +14,7 @@ export default class Animals extends React.Component {
     return (
       <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressAnimal(item)}>
         <View style={styles.container}>
-          <Image style={styles.photo} source={{ uri: item.image_url }} />
+          <Image style={styles.photo} source={{ uri: item.image_uri }} />
           <Text style={styles.title}>{item.name}</Text>
         </View>
       </TouchableHighlight>

@@ -12,7 +12,6 @@ import SettingsScreen from './screens/Settings';
 
 import CustomDrawerContent from './Menu';
 import { Icon, Header } from '../components';
-import Images from "../data/images";
 import materialTheme from "../theme/theme";
 
 const { width } = Dimensions.get("screen");
