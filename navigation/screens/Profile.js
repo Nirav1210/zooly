@@ -33,20 +33,31 @@ export default class Profile extends React.Component {
     }
   };
 
-  renderTabs = (item) => {
+  onPressImageIcon = item => {
+    const { navigation } = this.props;
+    navigation.navigate('Gallery', item);
+  };
+
+  renderTabs = item => {
     const { navigation } = this.props;
     return (
       <Block row style={[styles.tabs, styles.dividerBottom]}>
         <Button shadowless style={styles.tab} onPress={() => navigation.goBack()}>
           <Block row middle>
             <AntDesign name="back" size={23} color="black" style={styles.buttonIcon} />
-            <Text bold size={20} style={styles.tabTitle}>Back</Text>
+            {/* <Text bold size={20} style={styles.tabTitle}>Back</Text> */}
           </Block>
         </Button>
         <Button shadowless style={styles.tab} onPress={() => {this._onPlayPausePressed(item.audio_uri)}}>
           <Block row middle>
             <AntDesign name="sound" size={23} color="black" style={styles.buttonIcon} />
-            <Text bold size={20} style={styles.tabTitle}>Play</Text>
+            {/* <Text bold size={20} style={styles.tabTitle}>Play</Text> */}
+          </Block>
+        </Button>
+        <Button shadowless style={styles.tab} onPress={() => this.onPressImageIcon(item)}>
+          <Block row middle>
+            <AntDesign name="picture" size={23} color="black" style={styles.buttonIcon} />
+            {/* <Text bold size={20} style={styles.tabTitle}>Photos</Text> */}
           </Block>
         </Button>
       </Block>
@@ -138,12 +149,11 @@ const styles = StyleSheet.create({
   },
   tabs: {
     marginBottom: 10,
-    // marginTop: 5,
     elevation: 4,
   },
   tab: {
     backgroundColor: theme.COLORS.TRANSPARENT,
-    width: width * 0.423,
+    width: width * 0.27,
     borderRadius: 4,
     borderWidth: 1,
     height: 50,

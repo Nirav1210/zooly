@@ -1,9 +1,10 @@
 const Intro = 'https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/images/zooly-logo.png';
 
 const Animals = {
-  'Lion': 'https://images.unsplash.com/photo-1552410260-0fd9b577afa6?fit=crop&w=840&q=80',
+  'Lion': ['https://images.unsplash.com/photo-1552410260-0fd9b577afa6?fit=crop&w=840&q=80', 'https://images.unsplash.com/photo-1552410260-0fd9b577afa6?fit=crop&w=840&q=80', 'https://images.unsplash.com/photo-1552410260-0fd9b577afa6?fit=crop&w=840&q=80', 'https://images.unsplash.com/photo-1552410260-0fd9b577afa6?fit=crop&w=840&q=80', 'https://images.unsplash.com/photo-1552410260-0fd9b577afa6?fit=crop&w=840&q=80'],
   'Eagle': 'https://images.unsplash.com/photo-1557401620-67270b61ea82?fit=crop&w=1350&q=80',
   'Shark': 'https://images.unsplash.com/photo-1560275619-4662e36fa65c?fit=crop&w=1376&q=80',
+  'Peacock': 'https://images.unsplash.com/photo-1536514900905-0d5511b9d489?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80'
 };
 
 const Categories = {

@@ -7,6 +7,7 @@ import HomeScreen from './screens/Home';
 import AnimalsScreen from './screens/Animals';
 import IntroScreen from './screens/Intro';
 import ProfileScreen from './screens/Profile';
+import GalleryScreen from './screens/Gallery';
 import UserScreen from './screens/User';
 import SettingsScreen from './screens/Settings';
 
@@ -97,6 +98,15 @@ function HomeStack(props) {
             <Header back transparent title="" navigation={navigation} scene={scene} />
           ),
           headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="Gallery"
+        component={GalleryScreen}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header back transparent title="" navigation={navigation} scene={scene} />
+          ),
         }}
       />
     </Stack.Navigator>

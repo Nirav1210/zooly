@@ -2,26 +2,34 @@ import Images from './images';
 
 export const animals = [
     {
-        animalId: 1,
-        categoryId: 1,
-        name: "Lion",
-        image_uri: Images.Animals.Lion,
-        audio_uri: require('../assets/sounds/lion.mp3'),
+      animalId: 1,
+      categoryId: 1,
+      name: "Lion",
+      image_uri: Images.Animals.Lion[0],
+      other_images: Images.Animals.Lion[1],
+      audio_uri: require('../assets/sounds/lion.mp3'),
     },
     {
-        animalId: 2,
-        categoryId: 2,
-        name: "Eagle",
-        image_uri: Images.Animals.Eagle,
-        audio_uri: require('../assets/sounds/eagle.mp3'),
+      animalId: 2,
+      categoryId: 2,
+      name: "Eagle",
+      image_uri: Images.Animals.Eagle,
+      audio_uri: require('../assets/sounds/eagle.mp3'),
     },
     {
-        animalId: 3,
-        categoryId: 3,
-        name: "Shark",
-        image_uri: Images.Animals.Shark,
-        audio_uri: "",
+      animalId: 3,
+      categoryId: 3,
+      name: "Shark",
+      image_uri: Images.Animals.Shark,
+      audio_uri: "",
     },
+    {
+      animalId: 4,
+      categoryId: 2,
+      name: "Peacock",
+      image_uri: Images.Animals.Peacock,
+      audio_uri: require('../assets/sounds/peacock.mp3'),
+  },
 ];
 
 export const categories = [
@@ -88,6 +96,27 @@ export const descriptions = [
     facts: [
       'Eagles are large, powerfully built birds of prey, with heavy heads and beaks.',
       'Even the smallest eagles have relatively longer and more evenly broad wings, and more direct, faster flight – despite the reduced size of aerodynamic feathers.',
+      'Eagles have powerful talons which help them catch prey',
+      'Location of the nest varies with species. Bald eagles for example, most likely nest in tall trees whereas as golden eagles prefer cliff faces or more open areas.',
+      'There are over 60 different species of eagle.',
+      'Golden eagles have been known to hunt foxes, wild cats and even young deer and goats.',
+      'Female golden eagles usually lay between one and four eggs each breeding season.',
+      'The bald eagle is the national bird of the United States.',
+      'Although their name suggests otherwise, bald eagles are not bald.',
+      'Female bald eagles weigh 25% more than the male eagles',
+      'Bald eagles eat mostly fish, swooping down to the water and catching them with their powerful talons.',
+      'Bald eagles live for around 20 years in the wild.',
+      'Bald eagles build very large nests, sometimes weighing as much as a ton!',
+      'Eagles have amazing eyesight and can detect prey up to two miles away.',
+      'An eagles vision is 4–5 times better than that of a human. Eagle eyes are angled 30 degrees away from centre of the face, which gives eagles a greater field of view.',
+      'Eagles can be divided broadly into four groups; sea eagles, booted eagles, snake eagles and giant forest eagles.',
+      'Booted eagles have a relatively wide diet consisting of birds, small mammals, reptiles, rodents, amphibians and insects',
+      'One of the largest eagles, the Harpy eagle, feeds on larger animals including monkeys, sloths and coatis.',
+      'Eagles are apex predators, meaning they are at the top of the food chain.',
+      'Eagles are one of the biggest birds on the planet.',
+      'The Steller’s Sea Eagle is the biggest eagle species, weighing as much as 9 kilograms with wingspans of over 7 feet.',
+      'Eagles can fly as high as 15,000 feet.',
+      'Eagles are diurnal. They are more active during the day and sleep or rest at night. Eagles up wake as early as the sunrise, and sleep right away after sundown.',
     ]
   },
   {
@@ -95,6 +124,15 @@ export const descriptions = [
     facts: [
       'Sharks are fun',
       'Sharks can kill',
+    ]
+  },
+  {
+    animalId: 4,
+    facts: [
+      `The name 'peacock' only applies to the male gender of the species, whereas females go by 'peahen'. 'Peafowl' is the appropriate collective name for them.`,
+      'Peacocks are big, colorful pheasants with a reputation for their lustrous tails.',
+      'Peacocks usually appear twice the size of peahens.',
+      'Peacocks renew their feathers once every year.',
     ]
   }
 ]

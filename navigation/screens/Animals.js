@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, FlatList, View, Text, TouchableHighlight, Image } from 'react-native';
+import { StyleSheet, FlatList, View, TouchableHighlight, Image } from 'react-native';
+import { Block, Text } from 'galio-framework';
 import { getAnimalsByCategoryId } from '../../data/api';
 import { AnimalCard } from '../../theme/AppStyles'
 
@@ -28,9 +29,11 @@ export default class Animals extends React.Component {
     return (
       <View>
         <View>
-            <Text>
-                {category.description}
-            </Text>
+          <Block>
+            <Block row space="between" style={styles.description} >
+              <Text size={18}>{category.description}</Text>
+            </Block>
+          </Block>
         </View>
         <FlatList
           vertical
@@ -50,4 +53,13 @@ const styles = StyleSheet.create({
   photo: AnimalCard.photo,
   title: AnimalCard.title,
   category: AnimalCard.category,
+  description: {
+    padding: 15,
+    marginLeft: 20,
+    marginRight: 20,
+    borderWidth: 1,
+    borderRadius: 15,
+    justifyContent: 'center',
+    borderColor: '#444444',
+  },
 });
