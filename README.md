@@ -11,16 +11,12 @@ A virtual zoo
 
 ## Main screens
 
+<img src="https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-1.png" alt="intro screen" width="200"/>
 
-![alt text](https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-1.png "screenshot of intro screen")
+<img src="https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-2.png" alt="categories screen" width="200"/>
 
-![alt text](https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-2.png "screenshot of categories screen")
+<img src="https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-3.png" alt="grid of animals in a category" width="200"/>
 
-![alt text](https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-3.png "screenshot of grid of animals in a category")
+<img src="https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-4.png" alt="profle of an animal(eagle)" width="200"/>
 
-![alt text](https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-4.png "screenshot of profle of an animal- eagle")
-
-![alt text](https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-4.png "screenshot of profle of an animal- lion")
-
-
- 
+<img src="https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-5.png" alt="profle of an animal(lion)" width="200"/>
