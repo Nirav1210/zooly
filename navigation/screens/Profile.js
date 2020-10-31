@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform, TouchableHighlight } from 'react-native';
 import { Block, Text, theme, Button } from 'galio-framework';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from '@expo/vector-icons'; 
@@ -42,24 +42,17 @@ export default class Profile extends React.Component {
     const { navigation } = this.props;
     return (
       <Block row style={[styles.tabs, styles.dividerBottom]}>
-        <Button shadowless style={styles.tab} onPress={() => navigation.goBack()}>
-          <Block row middle>
-            <AntDesign name="back" size={23} color="black" style={styles.buttonIcon} />
-            {/* <Text bold size={20} style={styles.tabTitle}>Back</Text> */}
-          </Block>
-        </Button>
-        <Button shadowless style={styles.tab} onPress={() => {this._onPlayPausePressed(item.audio_uri)}}>
-          <Block row middle>
+        <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' style={styles.tab} onPress={() => navigation.goBack()}>
+          <AntDesign name="back" size={23} color="black" style={styles.buttonIcon} />
+        </TouchableHighlight>
+        <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' style={styles.tab} onPress={() => {this._onPlayPausePressed(item.audio_uri)}}>
             <AntDesign name="sound" size={23} color="black" style={styles.buttonIcon} />
             {/* <Text bold size={20} style={styles.tabTitle}>Play</Text> */}
-          </Block>
-        </Button>
-        <Button shadowless style={styles.tab} onPress={() => this.onPressImageIcon(item)}>
-          <Block row middle>
-            <AntDesign name="picture" size={23} color="black" style={styles.buttonIcon} />
+        </TouchableHighlight>
+        <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' style={styles.tab} onPress={() => this.onPressImageIcon(item)}>
+          <AntDesign name="picture" size={23} color="black" style={styles.buttonIcon} />
             {/* <Text bold size={20} style={styles.tabTitle}>Photos</Text> */}
-          </Block>
-        </Button>
+        </TouchableHighlight>
       </Block>
     )
   }
@@ -84,9 +77,7 @@ export default class Profile extends React.Component {
         </Block>
         <Block flex style={styles.options}>
           <ScrollView showsVerticalScrollIndicator={false}>
-            <Block>
               {this.renderTabs(item)}
-            </Block>
             <Block row space="between" style={{ paddingVertical: 16, alignItems: 'baseline' }}>
               <Text bold size={20}>Do you know...?</Text>
             </Block>
@@ -148,15 +139,17 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   tabs: {
-    marginBottom: 10,
     elevation: 4,
   },
   tab: {
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: theme.COLORS.TRANSPARENT,
-    width: width * 0.27,
+    width: width * 0.28,
     borderRadius: 4,
     borderWidth: 1,
     height: 50,
+    margin: 5, 
   },
   tabTitle: {
     lineHeight: 20,
