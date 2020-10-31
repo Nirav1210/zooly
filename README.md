@@ -11,12 +11,18 @@ A virtual zoo
 
 ## Main screens
 
+<p align="middle">
 <img src="https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-1.png" alt="intro screen" width="200"/>
 
 <img src="https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-2.png" alt="categories screen" width="200"/>
 
 <img src="https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-3.png" alt="grid of animals in a category" width="200"/>
 
+</p>
+
+<p align="middle">
 <img src="https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-4.png" alt="profle of an animal(eagle)" width="200"/>
 
 <img src="https://raw.githubusercontent.com/Nirav1210/zooly/master/assets/screenshots/zooly-5.png" alt="profle of an animal(lion)" width="200"/>
+
+</p>
